@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#090909">
+<title>NOVA AI</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#090909;color:#f7f4ed;font-family:-apple-system,BlinkMacSystemFont,Arial,sans-serif}
+header{padding:22px 20px;border-bottom:1px solid #302819;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:23px;letter-spacing:4px;font-weight:800;color:#e1c17b}
+.pro{border:1px solid #b89a5e;color:#e1c17b;padding:7px 12px;border-radius:30px;font-size:11px;letter-spacing:2px}
+main{max-width:680px;margin:auto;padding:25px 17px}
+.hero{padding:25px 5px 22px}
+.tag{color:#d7b66e;font-size:11px;letter-spacing:3px}
+h1{font-size:34px;line-height:1.2;margin:14px 0}
+.gold{color:#d7b66e}
+.sub{color:#aaa6a0;line-height:1.7;font-size:14px}
+.tools{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:18px 0 24px}
+.tool{background:#151513;border:1px solid #373126;border-radius:15px;padding:16px 12px;color:#f7f4ed;text-align:left;font-size:14px}
+.tool span{display:block;color:#d7b66e;font-size:21px;margin-bottom:10px}
+.chat{background:#111110;border:1px solid #383126;border-radius:18px;overflow:hidden}
+.chathead{padding:15px;border-bottom:1px solid #302819;color:#d7b66e;font-weight:700}
+#messages{padding:15px;min-height:170px;max-height:360px;overflow:auto}
+.msg{padding:12px 14px;border-radius:13px;margin:9px 0;line-height:1.6;font-size:14px;white-space:pre-wrap}
+.ai{background:#201d17;color:#f5ead3}
+.user{background:#343025;margin-left:25px}
+form{display:flex;gap:8px;padding:12px;border-top:1px solid #302819}
+input{min-width:0;flex:1;background:#1b1b19;border:1px solid #484034;border-radius:12px;padding:14px;color:white;font-size:14px}
+button{cursor:pointer}
+.send{background:#d7b66e;border:0;border-radius:12px;padding:0 18px;font-weight:800;color:#15120b}
+.note{font-size:11px;color:#89857d;line-height:1.6;padding:0 15px 15px}
+footer{text-align:center;color:#777269;font-size:11px;padding:25px}
+</style>
+</head>
+<body>
+<header><div class="logo">✧ NOVA AI</div><div class="pro">INTELLIGENCE</div></header>
+<main>
+<section class="hero">
+<div class="tag">YOUR PERSONAL AI</div>
+<h1>Ideas become<br><span class="gold">extraordinary.</span></h1>
+<p class="sub">یاریدەدەری زیرەکی دەستکردت بۆ نووسین، بیرۆکە و کاروبار. پرسیارەکەت بنووسە و دەست پێ بکە.</p>
+</section>
+<div class="tools">
+<button class="tool" onclick="preset('کاپشنێکی جوانی کوردی بۆ پۆستی سۆشیال میدیا بنووسە')"><span>✎</span>نووسینی کاپشن</button>
+<button class="tool" onclick="preset('بیرۆکەیەکی نوێ بۆ کاروبارێکی بچووک پێشنیار بکە')"><span>✧</span>بیرۆکەی نوێ</button>
+<button class="tool" onclick="preset('ڕیکلامێکی پڕۆفیشناڵ بە کوردی بنووسە')"><span>◇</span>ڕیکلام و مارکێتینگ</button>
+<button class="tool" onclick="preset('ئەم دەقە بۆ ئینگلیزی وەربگێڕە: سڵاو، چۆنی؟')"><span>文</span>وەرگێڕان</button>
+</div>
+<section class="chat">
+<div class="chathead">✧ گفتوگۆ لەگەڵ NOVA</div>
+<div id="messages"><div class="msg ai">سڵاو! بەخێربێیت بۆ NOVA AI. ✨<br>پرسیارێکم لێ بکە یان یەکێک لە ئامرازەکان هەڵبژێرە.</div></div>
+<form id="form"><input id="prompt" placeholder="پرسیارەکەت بنووسە..." autocomplete="off"><button class="send">➤</button></form>
+<div class="note">ئەم وەشانە ڕووکاری سەرەتاییە. بۆ وەڵامی ڕاستەقینەی AI، پێویستە خزمەتگوزاری AI بە شێوەی پارێزراو پێوە ببەسترێت.</div>
+</section>
+</main>
+<footer>NOVA AI · BUILT FOR BIG IDEAS</footer>
+<script>
+const messages=document.getElementById('messages');
+const input=document.getElementById('prompt');
+function add(text,cls){const d=document.createElement('div');d.className='msg '+cls;d.textContent=text;messages.appendChild(d);messages.scrollTop=messages.scrollHeight}
+function preset(text){input.value=text;input.focus()}
+document.getElementById('form').addEventListener('submit',function(e){e.preventDefault();const q=input.value.trim();if(!q)return;add(q,'user');input.value='';add('ئەمە وەشانی سەرەتایی NOVA AI ـە. هێشتا AI ـی ڕاستەقینە پێوە نەبەستراوە. هەنگاوی داهاتوو پەیوەستکردنی مۆدێلی AI ـە.','ai')});
+</script>
+</body>
+</html>
